@@ -13,12 +13,12 @@
 
 ActiveRecord::Schema.define(version: 20140701125957) do
 
-  create_table "movies", force: true do |t|
+  create_table "books", force: true do |t|
     t.string   "title"
     t.integer  "release_year"
     t.float    "price"
     t.text     "description"
-    t.string   "imdb_id"
+    t.string   "isbn_id"
     t.string   "poster_url"
     t.datetime "created_at"
     t.datetime "updated_at"
