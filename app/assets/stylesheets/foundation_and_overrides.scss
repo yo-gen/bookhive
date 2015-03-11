@@ -670,7 +670,7 @@ $label-font-sizing: rem-calc(14);
 // $label-font-color-alt: #fff;
 // $label-font-family: $body-font-family;
 
-.movie-label {
+.book-label {
   @include label( $text-size:13px, $bg: #3D3D32 );
   color: gold;
 }

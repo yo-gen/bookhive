@@ -1,13 +1,13 @@
 // Index page style
-.movies-grid {
-  .movie-card {
+.books-grid {
+  .book-card {
     width:220px;
     margin:auto;
     .poster img {
       height: 325px;
       width:100%;
     }
-    .movie-info {
+    .book-info {
       .title { height: 4em; }
     }
   }

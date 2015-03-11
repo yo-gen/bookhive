@@ -5,7 +5,7 @@ one:
   release_year: 1
   price: 9.99
   description: MyText
-  imdb_id: MyString
+  isbn_id: MyString
   poster_url: MyString
 
 two:
@@ -13,5 +13,5 @@ two:
   release_year: 1
   price: 9.99
   description: MyText
-  imdb_id: MyString
+  isbn_id: MyString
   poster_url: MyString
