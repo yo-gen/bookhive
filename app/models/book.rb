@@ -1,10 +1,10 @@
-class Movie < ActiveRecord::Base
+class Book < ActiveRecord::Base
   def poster
     "http://ia.media-imdb.com/images/M/#{poster_url}"
   end
 
-  def imdb
-    "http://www.imdb.com/title/#{imdb_id}/"
+  def isbn
+    "http://www.imdb.com/title/#{isbn_id}/"
   end
 
   def cart_action(current_user_id)
