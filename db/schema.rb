@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140701125957) do
+ActiveRecord::Schema.define(version: 20150316120444) do
 
   create_table "books", force: true do |t|
     t.string   "title"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 20140701125957) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "shared_books", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "book_id"
+    t.integer  "credit_price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "shared_books", ["book_id"], name: "index_shared_books_on_book_id", using: :btree
+  add_index "shared_books", ["user_id"], name: "index_shared_books_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

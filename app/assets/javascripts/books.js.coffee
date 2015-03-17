@@ -12,3 +12,10 @@ $(window).load ->
       $('.cart-count').html(data)
       $this.find('span').html(new_target)
       $this.data('target', new_target)
+  $ ->
+  $('.show-advanced-search').click ->
+    $('.advanced-search').show()
+    $(this).hide()
+  $('.close-advanced-search').click ->
+    $('.advanced-search').hide()
+    $('.show-advanced-search').show()

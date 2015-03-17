@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @shared_book.user %>
+</p>
+
+<p>
+  <strong>Book:</strong>
+  <%= @shared_book.book %>
+</p>
+
+<p>
+  <strong>Credit price:</strong>
+  <%= @shared_book.credit_price %>
+</p>
+
+<%= link_to 'Edit', edit_shared_book_path(@shared_book) %> |
+<%= link_to 'Back', shared_books_path %>

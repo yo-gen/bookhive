@@ -1,11 +1,23 @@
 Rails.application.routes.draw do
+  resources :shared_books
+
   get 'carts/show'
 
   devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
-  resources :books, only: [:show, :index]
+  
+  
   resource :cart, only: [:show] do
     put 'add/:book_id', to: 'carts#add', as: :add_to
     put 'remove/:book_id', to: 'carts#remove', as: :remove_from
+  end
+  
+  resources :books, only: [:show, :index] do
+    match :search, to: 'books#index', via: :post, on: :collection
+  end
+
+
+  resources :users do
+    resources:shared_books
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,10 +1,13 @@
 class Book < ActiveRecord::Base
+  has_many :shared_book
+  has_many :user, through: :shared_book
+
   def poster
-    "http://ia.media-isbn.com/images/M/#{poster_url}"
+    "http://ia.media-imdb.com/images/M/#{poster_url}"
   end
 
   def isbn
-    "http://www.isbn.com/title/#{isbn_id}/"
+    "http://www.imdb.com/title/#{isbn_id}/"
   end
 
   def cart_action(current_user_id)

@@ -675,6 +675,29 @@ $label-font-sizing: rem-calc(14);
   color: gold;
 }
 
+.filter-label {
+  @include label( $text-size:13px );
+  opacity: .9;
+  & > a {
+    color: antiquewhite;
+    &:hover {
+      color: white;
+    }
+  }
+  &:hover {
+    opacity: 1;
+    color: white;
+  }
+  &.red {
+    background-color: #BA0000;
+  }
+  &.golden-rod {
+    background-color: DarkGoldenRod;
+  }
+  &.dark-slate-gray {
+    background-color: Gold;
+  }
+}
 // Magellan
 
 // $include-html-magellan-classes: $include-html-classes;

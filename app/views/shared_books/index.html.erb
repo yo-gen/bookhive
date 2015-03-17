@@ -1,0 +1,26 @@
+<h1>Your Shared Books</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Book</th>
+      <th>Credit price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shared_books.each do |shared_book| %>
+      <tr>
+        <td><%= shared_book.book.title %></td>
+        <td><%= shared_book.credit_price %></td>
+        <td><%= link_to 'Edit', edit_shared_book_path(shared_book) %></td>
+        <td><%= link_to 'Destroy', shared_book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Shared book', new_shared_book_path %>
