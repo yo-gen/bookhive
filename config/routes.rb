@@ -10,11 +10,16 @@ Rails.application.routes.draw do
     put 'add/:book_id', to: 'carts#add', as: :add_to
     put 'remove/:book_id', to: 'carts#remove', as: :remove_from
   end
+
+  resources :books, only: [:show, :index]
   
   resources :books, only: [:show, :index] do
     match :search, to: 'books#index', via: :post, on: :collection
   end
 
+  resources :books do
+    resources:shared_books
+  end
 
   resources :users do
     resources:shared_books

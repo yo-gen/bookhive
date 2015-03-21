@@ -4,9 +4,10 @@ class SharedBooksController < ApplicationController
   # GET /shared_books
   # GET /shared_books.json
   def index
-  #  @shared_books = SharedBook.find(params[:user_id])
     if params[:user_id]
       @shared_books = SharedBook.where(user_id: params[:user_id])
+    elsif params[:book_id]
+      @shared_books = SharedBook.where(book_id: params[:book_id])
     else
       @shared_books = SharedBook.all
     end
@@ -19,7 +20,7 @@ class SharedBooksController < ApplicationController
 
   # GET /shared_books/new
   def new
-    @shared_book = SharedBook.new
+    @shared_book = SharedBook.new(:book_id => params[:book_id])
   end
 
   # GET /shared_books/1/edit
@@ -29,9 +30,9 @@ class SharedBooksController < ApplicationController
   # POST /shared_books
   # POST /shared_books.json
   def create
-    
     @shared_book = SharedBook.new(shared_book_params)
     @shared_book.user_id = current_user.id
+
     respond_to do |format|
       if @shared_book.save
         format.html { redirect_to user_shared_books_path(current_user.id), notice: 'Shared book was successfully created.' }
@@ -62,7 +63,7 @@ class SharedBooksController < ApplicationController
   def destroy
     @shared_book.destroy
     respond_to do |format|
-      format.html { redirect_to shared_books_url, notice: 'Shared book was successfully destroyed.' }
+      format.html { redirect_to user_shared_books_path(current_user.id), notice: 'Shared book was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -18,5 +18,9 @@
       <i class="fi-shopping-cart"></i>
       <span><%=@cart_action%></span> Cart
     <%end%>
+    <%=link_to new_book_shared_book_path(@book.id), class: "button" do%>
+    <i class="fi-share"></i> 
+    Share this book
+    <%end%>
   <%end%>
 </div>

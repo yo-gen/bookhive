@@ -10,15 +10,12 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :book_id %><br>
-    <%= f.text_field :book_id %>
-  </div>
+  
   <div class="field">
     <%= f.label :credit_price %><br>
     <%= f.number_field :credit_price %>
   </div>
+  <%= f.hidden_field :book_id %>
   <div class="actions">
     <%= f.submit %>
   </div>
