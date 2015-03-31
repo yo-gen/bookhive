@@ -1,14 +1,14 @@
 <%#= render "title_search_box" %>
 <div class="column">
   <h5>
-    <a class="show-advanced-search">Advanced Search <span class="fi-plus"/></a>
+    <a class="show-advanced-search">Search Books <span class="fi-plus"/></a>
   </h5>
 </div>
 
 <div class="column">
   <div class="advanced-search hide form-container glassy-bg columns">
     <a class="close-advanced-search fi-x"></a>
-    <h4>Advanced Search</h4>
+    <h4>Search Books</h4>
     <%= search_form_for @search, url: search_books_path, method: :post do |f| %>
       <%= f.condition_fields do |c| %>
         <div class="large-4 small-4 columns">
@@ -53,7 +53,7 @@
 <div class="column">
   <ul class="books-grid no-bullet row">
     <% @books.each do |book| %>
-      <li class="large-3 medium-4 small-12 column">
+      <li class="large-3 medium-4 small-12 column left">
         <div class="book-card padly">
           <%= link_to book, class: "poster" do %>
             <%= image_tag book.poster %>

@@ -1,7 +1,10 @@
 class Book < ActiveRecord::Base
   has_many :shared_book
   has_many :user, through: :shared_book
-
+  
+  has_many :book_like
+  has_many :user, through: :book_like
+  
   def poster
     "http://ia.media-imdb.com/images/M/#{poster_url}"
   end

@@ -29,6 +29,7 @@ gem 'hiredis', '~> 0.4.5'
 gem 'spring', group: :development
 # For Advanced Search
 gem 'ransack'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

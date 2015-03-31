@@ -1,9 +1,14 @@
-<h4>Your Shared Books</h4>
+<h5>Your Shared Books
 <br>
+<div class="right">
+<%= render 'layouts/stats' %>
+<%= render 'users/follow_form' %>
+</div>
+</h5>
 <div class="column">
   <ul class="books-grid no-bullet row">
     <% @shared_books.each do |shared_book| %>
-      <li class="large-3 medium-4 small-12 column">
+      <li class="large-3 medium-4 small-12 column left">
         <h7>Credit Price <%= shared_book.credit_price %></h7>
         <%= link_to 'Edit Price', edit_shared_book_path(shared_book), class: "right" %>
         <div class="book-card padly">
@@ -26,4 +31,3 @@
     <% end %>
   </ul>
 </div>
-<%= link_to 'Add Shared book', new_shared_book_path %>

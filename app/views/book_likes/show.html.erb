@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @book_like.user_id %>
+</p>
+
+<p>
+  <strong>Book:</strong>
+  <%= @book_like.book_id %>
+</p>
+
+<%= link_to 'Edit', edit_book_like_path(@book_like) %> |
+<%= link_to 'Back', book_likes_path %>

@@ -1,0 +1,9 @@
+<table>
+<% for user in @users %>
+  <tr>
+    <th><%= image_tag avatar_url(user) %></th>
+    <th><%= link_to user.email, user_shared_books_path(user.id) %></th>
+    <th><%= render 'layouts/stats' %></th>
+  </tr>
+<% end %>
+</table>

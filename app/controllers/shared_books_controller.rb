@@ -5,6 +5,7 @@ class SharedBooksController < ApplicationController
   # GET /shared_books.json
   def index
     if params[:user_id]
+      @user=User.find(params[:user_id])
       @shared_books = SharedBook.where(user_id: params[:user_id])
     elsif params[:book_id]
       @shared_books = SharedBook.where(book_id: params[:book_id])

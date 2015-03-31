@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :shared_books
+  resources :book_likes
 
+  resources :shared_books
   get 'carts/show'
 
   devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
@@ -11,6 +12,12 @@ Rails.application.routes.draw do
     put 'remove/:book_id', to: 'carts#remove', as: :remove_from
   end
 
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  
   resources :books, only: [:show, :index]
   
   resources :books, only: [:show, :index] do
@@ -24,6 +31,17 @@ Rails.application.routes.draw do
   resources :users do
     resources:shared_books
   end
+
+  resources :users do
+    resources:book_likes
+  end
+
+  resources :books do
+    resources:book_likes
+  end
+  
+  resources :book_likes  
+  resources :relationships, only: [:create, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
