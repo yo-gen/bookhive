@@ -12,9 +12,10 @@
         <h7>Credit Price <%= shared_book.credit_price %></h7>
         <%= link_to 'Edit Price', edit_shared_book_path(shared_book), class: "right" %>
         <div class="book-card padly">
-          <%= link_to shared_book.book, class: "poster" do %>
+          <%= link_to shared_book, class: "poster" do %>
             <%= image_tag shared_book.book.poster %>
           <% end %>
+          
           <div class="book-info ell glassy-bg padmy padlx">
             <div class="title">
               <h6><%= shared_book.book.title %> <span>(<%= shared_book.book.release_year %>)</span></h6>

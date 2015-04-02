@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     put 'remove/:book_id', to: 'carts#remove', as: :remove_from
   end
 
+  get '/recommendations', to: 'recommendations#index'  
+  
   resources :users do
     member do
       get :following, :followers

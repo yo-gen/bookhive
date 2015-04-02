@@ -1,19 +1,30 @@
-<p id="notice"><%= notice %></p>
+<div class="large-3 small-12 column">
+  <%=image_tag @book.poster%>
+</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @shared_book.user %>
-</p>
+<div class="large-9 small-12 column">
+  <h3>
+    <%= @book.title %>
+    (<%= @book.release_year %>)
+    <%=link_to @book.isbn do%>
+      <%=image_tag asset_path("isbn_logo.png")%>
+    <%end%>
+  </h3>
+  <p class="label book-label radius mb1">$ <%= @book.price %></p>
 
-<p>
-  <strong>Book:</strong>
-  <%= @shared_book.book %>
-</p>
+  <p style="color:white;"><%= @book.description %></p>
 
-<p>
-  <strong>Credit price:</strong>
-  <%= @shared_book.credit_price %>
-</p>
+  <%if signed_in?%>
+    <%=link_to "", class: "button", data: {target: @cart_action, addUrl: add_to_cart_path(@shared_book), removeUrl: remove_from_cart_path(@shared_book)} do%>
+      <i class="fi-shopping-cart"></i>
+      <span><%=@cart_action%></span> Cart
+    <%end%>
+    <%=link_to new_book_shared_book_path(@book.id), class: "button" do%>
+      <i class="fi-share"></i> 
+      Share this book
+    <%end%>
+  <%end%>
+</div>
 
 <%= link_to 'Edit', edit_shared_book_path(@shared_book) %> |
 <%= link_to 'Back', shared_books_path %>

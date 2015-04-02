@@ -2,7 +2,7 @@ class CartsController < ApplicationController
   before_action :authenticate_user!
   def show
     cart_ids = $redis.smembers current_user_cart
-    @cart_books = Book.find(cart_ids)
+    @cart_books = SharedBook.find(cart_ids)
   end
 
   def add

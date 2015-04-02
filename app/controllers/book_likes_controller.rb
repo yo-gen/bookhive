@@ -26,6 +26,7 @@ class BookLikesController < ApplicationController
   def create
     @book = Book.find(params[:book_id])
     current_user.like(@book)
+    current_user.b_like(@book)
     respond_to do |format|
       format.html { redirect_to @book }
       format.js
@@ -52,6 +53,7 @@ class BookLikesController < ApplicationController
     book_id = BookLike.find(params[:id]).book_id
     @book = Book.find(book_id)
     current_user.unlike(@book)
+    current_user.b_unlike(@book)
     respond_to do |format|
       format.html { redirect_to @book }
       format.js

@@ -4,7 +4,8 @@
     <p class="mb0"> You've selected <span class="cart-count"><%=current_user.cart_count%></span> books!</p>
   </div>
 
-  <% @cart_books.each do |book|%>
+  <% @cart_books.each do |sbook|%>
+  <% book=Book.find(sbook.book_id)%>
   <div data-equalizer class="cart-book large-12 column mb1">
     <div class="column large-2 text-center p0" data-equalizer-watch>
       <%=link_to book do%>
@@ -15,7 +16,7 @@
         <p class="scale ptm"> <%= book.title %> </p>
     </div>
     <div class="column large-3 primary-bg text-center radius-r1" data-equalizer-watch>
-      <%=link_to "" , data: {targetUrl: remove_from_cart_path(book)} do%>
+      <%=link_to "" , data: {targetUrl: remove_from_cart_path(sbook)} do%>
         <i class="fi-x right"></i>
       <%end%>
       <h4 class="scale">$ <%= book.price %></h4>

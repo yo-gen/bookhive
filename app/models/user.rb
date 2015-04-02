@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   
+  recommends :books
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -38,7 +40,7 @@ class User < ActiveRecord::Base
     following.include?(other_user)
   end
 
-  def likes?(book)
+  def b_likes?(book)
     if book_like.find_by(book_id: book.id)
       return true
     else 
@@ -46,11 +48,11 @@ class User < ActiveRecord::Base
     end
   end
 
-  def like(book)
+  def b_like(book)
     book_like.create(book_id: book.id)
   end
 
-  def unlike(book)
+  def b_unlike(book)
     book_like.find_by(book_id: book.id).destroy
   end
   
