@@ -13,6 +13,7 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @cart_action = @book.cart_action current_user.try :id
+    @shared_books = SharedBook.where(book_id: @book.id)
   end
 
   private

@@ -1,0 +1,6 @@
+<div class="row padly">
+  <div class="small-6 column left padly">
+    <%= image_tag avatar_url(@user) %>
+    <%= link_to @user.email, user_shared_books_path(@user.id) %>
+  </div>
+</div>

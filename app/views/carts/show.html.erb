@@ -1,36 +1,36 @@
-<div id="mycart" class="small-10 small-centered medium-8 large-8 column">
+<div id="mycart" class="small-10 small-centered medium-9 large-9 column">
   <div class="p1 glassy-bg mb1 text-center radius-l1 radius-r1">
     <h4>My Cart</h4>
     <p class="mb0"> You've selected <span class="cart-count"><%=current_user.cart_count%></span> books!</p>
   </div>
 
   <% @cart_books.each do |sbook|%>
-  <% book=Book.find(sbook.book_id)%>
-  <% user=User.find(sbook.user_id)%>
-  <div data-equalizer class="cart-book large-12 column mb1">
-    <div class="column large-2 text-center p0" data-equalizer-watch>
-      <%=link_to book do%>
-        <%=image_tag book.poster, class: "radius-l1"%>
-      <%end%>
-    </div>
-    <div class="column large-5 glassy-bg text-center" data-equalizer-watch>
-        <p class="scale ptm"> <%= book.title %> </p>
-    </div>
-    <div class="column large-3 glassy-bg" data-equalizer-watch>
-      <div class="row text-center padly">
-      <%= link_to user_shared_books_path(user.id) do%>
-        <%= image_tag avatar_url(user)%>
-      <%end%>
+    <% book=Book.find(sbook.book_id)%>
+    <% user=User.find(sbook.user_id)%>
+    <div data-equalizer class="cart-book large-12 column mb1">
+      <div class="column large-2 text-center p0" data-equalizer-watch>
+        <%=link_to book do%>
+          <%=image_tag book.poster, class: "radius-l1"%>
+        <%end%>
       </div>
-      shared by <%= link_to user.email, user_shared_books_path(user.id) %>
+      <div class="column large-5 glassy-bg text-center" data-equalizer-watch>
+          <p class="scale ptm"> <%= book.title %> </p>
+      </div>
+      <div class="column large-3 glassy-bg" data-equalizer-watch>
+        <div class="row text-center padly">
+        <%= link_to user_shared_books_path(user.id) do%>
+          <%= image_tag avatar_url(user)%>
+        <%end%>
+        </div>
+        shared by <%= link_to user.email, user_shared_books_path(user.id) %>
+      </div>
+  
+      <div class="column large-2 primary-bg text-center radius-r1" data-equalizer-watch>
+        <%=link_to "" , data: {targetUrl: remove_from_cart_path(sbook)} do%>
+          <i class="fi-x right"></i>
+        <%end%>
+        <h4 class="scale"> <%= sbook.credit_price %> credits</h4>
+      </div>
     </div>
-
-    <div class="column large-2 primary-bg text-center radius-r1" data-equalizer-watch>
-      <%=link_to "" , data: {targetUrl: remove_from_cart_path(sbook)} do%>
-        <i class="fi-x right"></i>
-      <%end%>
-      <h4 class="scale"> <%= sbook.credit_price %> credits</h4>
-    </div>
-  </div>
-  <%end%>
+    <%end%>
 </div>

@@ -19,6 +19,7 @@ class SharedBooksController < ApplicationController
   def show
     @shared_book=SharedBook.find(params[:id])
     @book = Book.find(@shared_book.book_id)
+    @user = User.find(@shared_book.user_id)
   end
 
   # GET /shared_books/new
