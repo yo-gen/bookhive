@@ -13,6 +13,20 @@
   }
 }
 
+.books-grid-small {
+  .book-card {
+    width:150px;
+    margin:auto;
+    .poster img {
+      height: 225px;
+      width:100%;
+    }
+    .book-info {
+      .title { height: 4em; }
+    }
+  }
+}
+
 .close-advanced-search {
   color: red !important;
   position: relative;

@@ -29,6 +29,9 @@ gem 'hiredis', '~> 0.4.5'
 gem 'spring', group: :development
 # For Advanced Search
 gem 'ransack'
+#for job queuing
+gem 'resque'
+gem 'resque-loner'
 # For Recommendations
 gem 'recommendable'
 # Use ActiveModel has_secure_password

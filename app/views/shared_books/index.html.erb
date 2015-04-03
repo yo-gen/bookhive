@@ -1,10 +1,18 @@
-<h5>Shared Books
-<br>
-<div class="right">
-<%= render 'layouts/stats' %>
-<%= render 'users/follow_form' %>
+<div class="row">
+  <div class="small-6 column left">
+    <%= image_tag avatar_url(@user) %>
+    <%= link_to @user.email, user_shared_books_path(@user.id) %>
+    <h5>
+      Shared Books
+    </h5>
+  </div>
+  <div class="small-6 column right">
+    <%= render 'layouts/stats' %>
+    <%= render 'users/follow_form' %>
+  </div>
 </div>
-</h5>
+
+
 <div class="column">
   <ul class="books-grid no-bullet row">
     <% @shared_books.each do |shared_book| %>
