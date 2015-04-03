@@ -1,9 +1,22 @@
 <table>
 <% for user in @users %>
-  <tr>
+  <tr style="background-color:black">
     <th><%= image_tag avatar_url(user) %></th>
     <th><%= link_to user.email, user_shared_books_path(user.id) %></th>
-    <th><%= render 'layouts/stats' %></th>
+    <th>
+  <a href="<%= following_user_path(user) %>">
+    <strong id="following">
+      <%= user.following.count %>
+    </strong>
+    following
+  </a>
+  <a href="<%= followers_user_path(user) %>">
+    <strong id="followers">
+      <%= user.followers.count %>
+    </strong>
+    followers
+  </a>
+    </th>
   </tr>
 <% end %>
 </table>
