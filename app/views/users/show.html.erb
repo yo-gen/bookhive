@@ -4,3 +4,19 @@
     <%= link_to @user.email, user_shared_books_path(@user.id) %>
   </div>
 </div>
+<div class="small-8 column small-centered">
+<% @news_feed.each do |news_feed| %>
+  <%doing=User.find(news_feed.doing_user)%>
+  <%if news_feed.user_id==@user.id%>
+    <% if news_feed.action_type=="like" %>
+        <%target_book=Book.find(news_feed.target_id)%>
+        <div class="row padly">
+          <div class="small-12 column padly">
+          <%= image_tag avatar_url(doing)%>
+          <%=link_to doing.email, doing %> has liked <%=link_to target_book.title, target_book %> 
+          </div>
+        </div>
+      <%end%>
+    <%end%>
+  <%end%>
+</div>

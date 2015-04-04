@@ -27,6 +27,8 @@ class BookLikesController < ApplicationController
     @book = Book.find(params[:book_id])
     current_user.like(@book)
     current_user.b_like(@book)
+    Resque.enqueue(UpdateFeed,current_user.id,@book.id,"like")
+    
     respond_to do |format|
       format.html { redirect_to @book }
       format.js

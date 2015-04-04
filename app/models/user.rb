@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   has_many :book_like
   has_many :book, through: :book_like
   
+  has_many :feed
+  
   has_many :active_relationships,  class_name:  "Relationship",
                                    foreign_key: "follower_id",
                                    dependent:   :destroy
@@ -55,5 +57,6 @@ class User < ActiveRecord::Base
   def b_unlike(book)
     book_like.find_by(book_id: book.id).destroy
   end
+
   
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150331082827) do
+ActiveRecord::Schema.define(version: 20150404001201) do
 
   create_table "book_likes", force: true do |t|
     t.integer  "user_id"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 20150331082827) do
     t.text     "description"
     t.string   "isbn_id"
     t.string   "poster_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "feeds", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "doing_user"
+    t.integer  "target_id"
+    t.string   "action_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

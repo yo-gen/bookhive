@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @news_feed = Feed.where(user_id=@user.id)
   end
 
   def following

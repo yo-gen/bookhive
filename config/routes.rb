@@ -1,5 +1,11 @@
 require 'resque/server'
 Rails.application.routes.draw do
+  resources :feeds
+
+  get 'social_actions/create'
+
+  get 'social_action/create'
+
   resources :book_likes
 
   resources :shared_books
