@@ -1,6 +1,6 @@
-<% content_for :search do %>
+<% content_for :simple do %>
   <div class="large-8 small-9 columns">
-  <%= search_form_for @search do |f| %>
+  <%= search_form_for @simple do |f| %>
     <%= f.text_field :title_cont, class: "radius-left expand", placeholder: "Movie title" %>
   </div>
     <div class="large-4 small-3 columns">

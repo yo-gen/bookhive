@@ -3,7 +3,9 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show]
   
   def index
-  #@books = Book.all
+    @books = Book.all
+    @simple = Book.search(params[:q])
+    @books = @simple.result
     @search = Book.search(params[:q])
     @books = @search.result
     @search.build_condition if @search.conditions.empty?

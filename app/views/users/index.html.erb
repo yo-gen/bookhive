@@ -2,7 +2,7 @@
 <% for user in @users %>
   <tr style="background-color:black">
     <th><%= image_tag avatar_url(user) %></th>
-    <th><%= link_to user.email, user_shared_books_path(user.id) %></th>
+    <th><%= link_to user.email, user %></th>
     <th>
   <a href="<%= following_user_path(user) %>">
     <strong id="following">

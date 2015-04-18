@@ -1,9 +1,18 @@
 <div class="row padly">
   <div class="small-6 column left padly">
     <%= image_tag avatar_url(@user) %>
-    <%= link_to @user.email, user_shared_books_path(@user.id) %>
+    <%= link_to @user.email, @user %>
   </div>
+  <div class="small-6 column right padly">
+    <%= render 'layouts/stats' %>
+    <%= render 'users/follow_form' %>
+  </div>
+<div class="row padly"><%=link_to "View User's Shared Books", user_shared_books_path(@user.id), class: "button"%> </div>
 </div>
+
+
+
+
 <div class="small-8 column small-centered">
 <% @news_feed.each do |news_feed| %>
   <%doing=User.find(news_feed.doing_user)%>
@@ -14,6 +23,15 @@
           <div class="small-12 column padly">
           <%= image_tag avatar_url(doing)%>
           <%=link_to doing.email, doing %> has liked <%=link_to target_book.title, target_book %> 
+          </div>
+        </div>
+      <%end%>
+    <% if news_feed.action_type=="follow" %>
+        <%target_user=User.find(news_feed.target_id)%>
+        <div class="row padly">
+          <div class="small-12 column padly">
+          <%= image_tag avatar_url(doing)%>
+          <%=link_to doing.email, doing %> started following <%=link_to target_user.email, target_user %> 
           </div>
         </div>
       <%end%>

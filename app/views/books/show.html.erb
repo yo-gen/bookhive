@@ -1,3 +1,4 @@
+<% comment do%>
 <div class="row padly">
   <div class="large-3 small-12 column">
     <%=image_tag @book.poster%>
@@ -26,6 +27,40 @@
     <%end%>
   </div>
 </div>
+<%end%>
+
+
+<div class="row padly">
+  <div class="large-1 small-4 column">
+    <%=image_tag @book.poster%>
+    <p>
+    <%=render 'like_form' %>
+    </p>
+  </div>
+  
+  <div class="large-11 small-8 column">
+    <h3>
+      <%= @book.title %>
+      (<%= @book.release_year %>)
+      <%=link_to @book.isbn do%>
+        <%=image_tag asset_path("isbn_logo.png")%>
+      <%end%>
+    </h3>
+    <p class="label book-label radius mb1">$ <%= @book.price %></p>
+
+    <%if signed_in?%>
+      <%=link_to new_book_shared_book_path(@book.id), class: "button" do%>
+        <i class="fi-share"></i> 
+        Share this book
+      <%end%>
+    <%end%>
+  </div>
+</div>
+
+
+
+
+
 <div class="row padly">This book, <%=link_to @book.title, @book %> is shared by these users</div>
   <div class="small-12 medium-12 large-10 column">
     
