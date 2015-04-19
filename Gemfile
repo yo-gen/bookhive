@@ -34,6 +34,9 @@ gem 'resque'
 gem 'resque-loner'
 # For Recommendations
 gem 'recommendable'
+#For image uploading of shared book
+gem "mini_magick"
+gem "carrierwave"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

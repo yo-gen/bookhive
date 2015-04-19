@@ -29,16 +29,11 @@
 </div>
 <%end%>
 
-
 <div class="row padly">
-  <div class="large-1 small-4 column">
+  <div class="large-2 small-4 column">
     <%=image_tag @book.poster%>
-    <p>
-    <%=render 'like_form' %>
-    </p>
   </div>
-  
-  <div class="large-11 small-8 column">
+  <div class="large-10 small-8 column">
     <h3>
       <%= @book.title %>
       (<%= @book.release_year %>)
@@ -47,18 +42,23 @@
       <%end%>
     </h3>
     <p class="label book-label radius mb1">$ <%= @book.price %></p>
+    <p style="color:white;"><%= @book.description %></p>
+  </div>
+</div>
 
-    <%if signed_in?%>
-      <%=link_to new_book_shared_book_path(@book.id), class: "button" do%>
-        <i class="fi-share"></i> 
+<div class="row padly">
+  <div class="large-2 small-4 column">
+    <%=render 'like_form' %>
+  </div>
+  <div class="large-10 small-8 column left">
+  <%if signed_in?%>
+    <%=link_to new_book_shared_book_path(@book.id), class: "button expand medium" do%>
+      <i class="fi-share"></i> 
         Share this book
       <%end%>
     <%end%>
   </div>
 </div>
-
-
-
 
 
 <div class="row padly">This book, <%=link_to @book.title, @book %> is shared by these users</div>

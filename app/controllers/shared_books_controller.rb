@@ -80,6 +80,6 @@ class SharedBooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shared_book_params
-      params.require(:shared_book).permit(:user_id, :book_id, :credit_price)
+      params.require(:shared_book).permit(:user_id, :book_id, :credit_price,:shared_book_image)
     end
 end

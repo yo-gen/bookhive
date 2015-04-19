@@ -10,13 +10,23 @@
       </ul>
     </div>
   <% end %>
-  
-  <div class="field">
-    <%= f.label :credit_price %><br>
-    <%= f.number_field :credit_price %>
+  <div class="row padly">  
+    <div class="field large-4 small-8 column">
+      <%= f.label :credit_price %><br>
+      <%= f.number_field :credit_price, placeholder: "Credit price" %>
+    </div>
+  </div>
+  <div class="row padly">
+    <div class="field large-4 small-8 column">
+      <%= f.label "Upload a photo" %>
+      <br>
+      <%= f.file_field :shared_book_image %>
+    </div>
   </div>
   <%= f.hidden_field :book_id %>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row padly">
+    <div class="actions large-3 small-6 column">
+      <%= f.submit "Create", :class => "button" %>
+    </div>
   </div>
 <% end %>

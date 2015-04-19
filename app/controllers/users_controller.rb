@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
   
   def show
+    @recommendations = current_user.recommended_books
     @user = User.find(params[:id])
     @news_feed = Feed.where(user_id=@user.id)
   end

@@ -10,31 +10,71 @@
 <div class="row padly"><%=link_to "View User's Shared Books", user_shared_books_path(@user.id), class: "button"%> </div>
 </div>
 
-
-
-
-<div class="small-8 column small-centered">
-<% @news_feed.each do |news_feed| %>
-  <%doing=User.find(news_feed.doing_user)%>
-  <%if news_feed.user_id==@user.id%>
-    <% if news_feed.action_type=="like" %>
-        <%target_book=Book.find(news_feed.target_id)%>
-        <div class="row padly">
-          <div class="small-12 column padly">
-          <%= image_tag avatar_url(doing)%>
-          <%=link_to doing.email, doing %> has liked <%=link_to target_book.title, target_book %> 
-          </div>
-        </div>
-      <%end%>
-    <% if news_feed.action_type=="follow" %>
-        <%target_user=User.find(news_feed.target_id)%>
-        <div class="row padly">
-          <div class="small-12 column padly">
-          <%= image_tag avatar_url(doing)%>
-          <%=link_to doing.email, doing %> started following <%=link_to target_user.email, target_user %> 
-          </div>
-        </div>
-      <%end%>
-    <%end%>
-  <%end%>
+<div class="row">
+<ul class="tabs" data-tab role="tablist">
+  <li class="tab-title active" role="presentational" ><a href="#panel1-1" role="tab" tabindex="0" aria-selected="true" controls="panel1-1">Feeds</a></li>
+  <li class="tab-title" role="presentational" ><a href="#panel1-2" role="tab" tabindex="0"aria-selected="false" controls="panel1-2">Shared Books</a></li>
+  <li class="tab-title" role="presentational"><a href="#panel2-3" role="tab" tabindex="0" aria-selected="false" controls="panel2-3">Recommendations</a></li>
+</ul>
 </div>
+
+<div class="tabs-content">
+  <section role="tabpanel" aria-hidden="false" class="content active" id="panel1-1">
+    <div class="small-8 column small-centered">
+    <% @news_feed.each do |news_feed| %>
+      <%doing=User.find(news_feed.doing_user)%>
+      <%if news_feed.user_id==@user.id%>
+        <% if news_feed.action_type=="like" %>
+            <%target_book=Book.find(news_feed.target_id)%>
+            <div class="row padly">
+              <div class="small-12 column padly">
+              <%= image_tag avatar_url(doing)%>
+              <%=link_to doing.email, doing %> has liked <%=link_to target_book.title, target_book %> 
+              </div>
+            </div>
+          <%end%>
+        <% if news_feed.action_type=="follow" %>
+            <%target_user=User.find(news_feed.target_id)%>
+            <div class="row padly">
+              <div class="small-12 column padly">
+              <%= image_tag avatar_url(doing)%>
+              <%=link_to doing.email, doing %> started following <%=link_to target_user.email, target_user %> 
+              </div>
+            </div>
+          <%end%>
+        <%end%>
+      <%end%>
+    </div>
+  </section>
+
+  <section role="tabpanel" aria-hidden="true" class="content" id="panel1-2">
+    <div class="column">
+      <ul class="books-grid no-bullet row">
+        <% @recommendations.each do |book| %>
+          <li class="large-3 medium-4 small-12 column left">
+            <div class="book-card padly">
+              <%= link_to book, class: "poster" do %>
+                <%= image_tag book.poster %>
+              <% end %>
+              <div class="book-info ell glassy-bg padmy padlx">
+                <div class="title">
+                  <h6><%= book.title %> <span>(<%= book.release_year %>)</span></h6>
+                </div>
+                <p class="left price label book-label radius">$ <%= book.price %></p>
+                <%= link_to book.isbn, class: "right" do %>
+                  <%= image_tag asset_path("isbn_logo.png") %>
+                <% end %>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>   
+  </section>
+
+  <section role="tabpanel" aria-hidden="true" class="content" id="panel1-3">
+    
+  </section>
+
+</div>
+
