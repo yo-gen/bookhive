@@ -17,6 +17,7 @@
       <!-- Right Nav Section -->
       <ul class="right">
         <%if signed_in?%>
+          <%comment do%>
           <li>
             <%=link_to "Users", users_path%>
           </li>
@@ -26,6 +27,7 @@
           <li>
             <%=link_to "Recommendations", recommendations_path()%>
           </li>
+          <%end%>
           <li>
             <%= link_to cart_path do%>
               <i class="fi-shopping-cart"></i> My Cart (<span class="cart-count"><%=current_user.cart_count%></span>)

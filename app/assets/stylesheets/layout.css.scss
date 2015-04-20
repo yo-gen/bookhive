@@ -1,5 +1,6 @@
 // Custom layout styles
-
+.off-canvas-wrap, .inner-wrap { height:100%; }
+.main-section { height:95%;overflow-y:auto; }
 // Default font family
 @font-face {
   font-family: 'gotham-rounded';

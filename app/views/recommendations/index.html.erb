@@ -1,22 +1,54 @@
-<div class="column">
-  <ul class="books-grid no-bullet row">
-    <% @recommendations.each do |book| %>
-      <li class="large-3 medium-4 small-12 column left">
-        <div class="book-card padly">
-          <%= link_to book, class: "poster" do %>
-            <%= image_tag book.poster %>
+<div class="row padly">
+  <div class="small-6 column left padly">
+    <%= image_tag avatar_url(current_user) %>
+    <%= link_to current_user.email, current_user %>
+  </div>
+  <div class="small-6 column right padly">
+    <%= render 'layouts/stats' %>
+    <%= render 'users/follow_form' %>
+  </div>
+</div>
+
+<div class="row padly">
+<ul class="tabs" data-tab role="tablist">
+  <li class="tab-title active" role="presentational" ><a href="#panel1-1" role="tab" tabindex="0" aria-selected="true" controls="panel1-1">Recommended</a></li>
+  <li class="tab-title" role="presentational" ><a href="#panel1-2" role="tab" tabindex="0"aria-selected="false" controls="panel1-2">Trending</a></a></li>
+  <li class="tab-title" role="presentational"><a href="#panel1-3" role="tab" tabindex="0" aria-selected="false" controls="panel1-3">Friends Pick</a></li>
+</ul>
+</div>
+
+<div class="tabs-content">
+  <section role="tabpanel" aria-hidden="false" class="content active" id="panel1-1">
+    <div class="row padly">
+      <div class="column">
+        <ul class="books-grid no-bullet row">
+          <% @recommendations.each do |book| %>
+            <li class="large-3 medium-4 small-12 column left">
+              <div class="book-card padly">
+                <%= link_to book, class: "poster" do %>
+                  <%= image_tag book.poster %>
+                <% end %>
+                <div class="book-info ell glassy-bg padmy padlx">
+                  <div class="title">
+                    <h6><%= book.title %> <span>(<%= book.release_year %>)</span></h6>
+                  </div>
+                  <p class="left price label book-label radius">$ <%= book.price %></p>
+                  <%= link_to book.isbn, class: "right" do %>
+                    <%= image_tag asset_path("isbn_logo.png") %>
+                  <% end %>
+                </div>
+              </div>
+            </li>
           <% end %>
-          <div class="book-info ell glassy-bg padmy padlx">
-            <div class="title">
-              <h6><%= book.title %> <span>(<%= book.release_year %>)</span></h6>
-            </div>
-            <p class="left price label book-label radius">$ <%= book.price %></p>
-            <%= link_to book.isbn, class: "right" do %>
-              <%= image_tag asset_path("isbn_logo.png") %>
-            <% end %>
-          </div>
-        </div>
-      </li>
-    <% end %>
-  </ul>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section role="tabpanel" aria-hidden="true" class="content" id="panel1-2">
+  </section>
+
+  <section role="tabpanel" aria-hidden="true" class="content" id="panel1-3">
+  </section>
+
 </div>

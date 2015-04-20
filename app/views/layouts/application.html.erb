@@ -14,7 +14,45 @@
 
   <body>
 
-    <%= render "layouts/header"%>
+    <div class="off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+        <nav class="tab-bar">
+   
+          <section class="left-small">
+            <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+          </section>
+
+          <section class="middle tab-bar-section">
+            <%= render "layouts/header"%>
+          </section>
+      
+        </nav>
+        
+    <aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        <li><label>Go to</label></li>
+        <li><%=link_to "My Home", current_user %></li>
+        <li class="has-submenu"><%=link_to "My Hive", recommendations_path()%>
+            <ul class="left-submenu">
+                <li class="back"><a href="#">Back</a></li>
+                <li><label>Level 1</label></li>
+                <li><a href="#">Link 1</a></li>
+                <li class="has-submenu"><a href="#">Link 2 w/ submenu</a>
+                    <ul class="left-submenu">
+                        <li class="back"><a href="#">Back</a></li>
+                        <li><label>Level 2</label></li>
+                        <li><a href="#">...</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><%=link_to "Profile", edit_user_registration_path%></li>
+        <li><%=link_to "Logout", destroy_user_session_path, method: :delete%></li>
+      </ul>
+    </aside>
+
+    <section class="main-section">
+
 
     <%= render "layouts/alerts" %>
 
@@ -30,6 +68,13 @@
     </footer>
 
     <%= javascript_include_tag "application" %>
+    
+  <a class="exit-off-canvas"></a>
+  
+  </div>
+</div>    
+    
+    
     
   </body>
 </html>

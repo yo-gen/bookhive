@@ -5,9 +5,10 @@ class UsersController < ApplicationController
   end
   
   def show
-    @recommendations = current_user.recommended_books
     @user = User.find(params[:id])
     @news_feed = Feed.where(user_id=@user.id)
+    @shared_books = SharedBook.where(user_id=@user.id)
+    @recommendations = @user.recommended_books  
   end
 
   def following
