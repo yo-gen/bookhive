@@ -7,10 +7,9 @@
     <%= render 'layouts/stats' %>
     <%= render 'users/follow_form' %>
   </div>
-<div class="row padly"><%=link_to "View User's Shared Books", user_shared_books_path(@user.id), class: "button"%> </div>
 </div>
 
-<div class="row">
+<div class="row padly">
 <ul class="tabs" data-tab role="tablist">
   <li class="tab-title active" role="presentational" ><a href="#panel1-1" role="tab" tabindex="0" aria-selected="true" controls="panel1-1">Feeds</a></li>
   <li class="tab-title" role="presentational" ><a href="#panel1-2" role="tab" tabindex="0"aria-selected="false" controls="panel1-2">Shared Books</a></li>
