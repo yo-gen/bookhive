@@ -1,4 +1,5 @@
 class SharedBook < ActiveRecord::Base
+  acts_as_commontable
   belongs_to :user
   belongs_to :book
   mount_uploader :shared_book_image, SharedBookImageUploader

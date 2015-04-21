@@ -1,5 +1,8 @@
 require 'resque/server'
 Rails.application.routes.draw do
+  
+  mount Commontator::Engine => '/commontator'
+  
   resources :feeds
 
   get 'social_actions/create'

@@ -27,6 +27,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    acts_as_votable (0.10.0)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
     builder (3.2.2)
@@ -42,6 +43,9 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    commontator (4.10.5)
+      jquery-rails
+      rails (>= 3.1)
     devise (3.2.4)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -166,8 +170,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_votable
   carrierwave
   coffee-rails (~> 4.0.0)
+  commontator (~> 4.10.0)
   devise
   foundation-rails
   hiredis (~> 0.4.5)

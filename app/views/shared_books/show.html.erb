@@ -12,6 +12,8 @@
   </div>
 </div>
 
+<div class="row padly">
+
 <div class="large-3 small-12 column">
     <%= link_to @shared_book.shared_book_image_url.to_s, class: "poster" do %>
       <%= image_tag @shared_book.shared_book_image_url(:thumb).to_s %>
@@ -38,3 +40,8 @@
   <%end%>
 </div>
 
+</div>
+
+<div class="row padly">
+<%= commontator_thread(@shared_book) %>
+</div>

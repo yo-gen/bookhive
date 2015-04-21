@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  acts_as_commontator
   has_many :shared_book
   has_many :book, through: :shared_book
 
