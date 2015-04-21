@@ -35,11 +35,20 @@ gem 'resque-loner'
 # For Recommendations
 gem 'recommendable'
 #For image uploading of shared book
-gem "mini_magick"
-gem "carrierwave"
+gem 'mini_magick'
+gem 'carrierwave'
+#for messaging
+gem "twitter-bootstrap-rails"
+gem 'bootstrap_form'
+gem 'will_paginate'
+gem "mailboxer"
+gem 'chosen-rails'
+gem 'jquery-turbolinks'
+
 #for comments
-gem "acts_as_votable"
-gem "commontator", "~> 4.10.0"
+gem 'acts_as_votable'
+gem 'commontator', '~> 4.10.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
